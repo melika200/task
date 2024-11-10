@@ -1,0 +1,147 @@
+.todo-container {
+  max-width: 500px;
+  margin: 10rem auto;
+  padding: 20px;
+  border: 3px solid rgb(240, 22, 138);
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-style {
+  display: flex;
+  align-items: center;
+}
+
+.input-style {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.list-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.list-item {
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.list-item:hover {
+  background-color: #e9ecef;
+}
+
+.subject {
+  font-size: 48px;
+  color: rgb(82, 2, 83);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.square-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #9cbddf;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.square-checkbox.checked {
+  background-color: #79afea;
+  color: white;
+}
+
+.square-checkbox:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+}
+.taskicon:hover {
+  cursor: pointer;
+  animation: iconAnimation 0.5s ease-out forwards;
+  color: red;
+}
+@keyframes iconAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+.add {
+  all: unset;
+}
+.iconadd {
+  cursor: pointer;
+  animation: bounce 1s;
+  font-size: 30px;
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+.iconadd:hover {
+  color: green;
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.total {
+  font-size: 18px;
+  border-bottom: 5px solid rgb(79, 3, 69);
+}
+.done {
+  border-bottom: 5px solid green;
+}

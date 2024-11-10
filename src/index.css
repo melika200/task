@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazir&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@keyframes colorChange {
+  0% {
+    background-color: #ffcccc;
+  }
+  25% {
+    background-color: #ccffcc;
+  }
+  50% {
+    background-color: #ccccff;
+  }
+  75% {
+    background-color: #ddb6d0;
+  }
+  100% {
+    background-color: #ecc6b4;
+  }
+}
+body{
+  animation: colorChange 18s infinite;
+  transition: background-color 0.8s;
+  font-family: 'Vazir', sans-serif;
+}
