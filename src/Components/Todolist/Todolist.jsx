@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Form, Button, ListGroup, ListGroupItem } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  ListGroup,
+  ListGroupItem,
+} from "react-bootstrap";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaTrashAlt } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,16 +15,23 @@ import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import "./Todolist.css";
 
-// Validation schema
 const validationSchema = Yup.object().shape({
   task: Yup.string()
     .required("لطفا تسکی را بنویسید")
-    .matches(/^[a-zA-Z0-9\u0600-\u06FF\s]+$/, "تسک باید فقط شامل حروف، اعداد و فواصل باشد")
-    .min(3, "تسک باید حداقل 3 کاراکتر باشد")
+    .matches(
+      /^[a-zA-Z0-9\u0600-\u06FF\s]+$/,
+      "تسک باید فقط شامل حروف، اعداد و فواصل باشد"
+    )
+    .min(3, "تسک باید حداقل 3 کاراکتر باشد"),
 });
-
+const getTextDirection = (text) => {
+  const persianRegex = /^[\u0600-\u06FF]/;
+  return persianRegex.test(text[0]) ? "rtl" : "ltr";
+};
 const TodoList = () => {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || []);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || []
+  );
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -32,8 +46,10 @@ const TodoList = () => {
 
   const handleDeleteTodo = (index) => {
     toast.info("تسک در حال حذف شدن هست");
-    setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
-    toast.success("حذف شد");
+    setTimeout(() => {
+      setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
+      toast.success("حذف شد");
+    }, 5000);
   };
 
   const handleToggleComplete = (index) => {
@@ -58,16 +74,26 @@ const TodoList = () => {
             onSubmit={handleAddTodo}
           >
             {({ handleSubmit, handleChange, values }) => (
-              <Form inline="true" className="d-flex mb-3 form-style" onSubmit={handleSubmit}>
-                <Field
-                  type="text"
-                  name="task"
-                  value={values.task}
-                  onChange={handleChange}
-                  placeholder="لطفا تسک وارد کنید"
-                  className="me-2 input-style form-control"
-                />
-                <ErrorMessage name="task" component="div" className="text-danger mx-2" />
+              <Form
+                inline="true"
+                className="d-flex mb-3 form-style"
+                onSubmit={handleSubmit}
+              >
+                <div className="d-flex flex-column">
+                  <Field
+                    type="text"
+                    name="task"
+                    value={values.task}
+                    onChange={handleChange}
+                    placeholder="لطفا تسک وارد کنید"
+                    className="me-2 input-style form-control"
+                  />
+                  <ErrorMessage
+                    name="task"
+                    component="div"
+                    className="text-danger mx-2 error"
+                  />
+                </div>
                 <button className="add" type="submit">
                   <IoIosAddCircleOutline className="mx-1 iconadd" />
                 </button>
@@ -96,6 +122,7 @@ const TodoList = () => {
                         className={`ms-2 ${
                           todo.completed ? "text-decoration-line-through" : ""
                         }`}
+                        dir={getTextDirection(todo.text)}
                       >
                         {todo.text}
                       </span>
@@ -113,8 +140,14 @@ const TodoList = () => {
                   </span>
                 </div>
               ))}
-              <p className="my-1"><span className="total">تعداد وظایف:</span> <span>{todos.length}</span></p>
-              <p className="my-1"><span className="done ">کار های انجام شده:</span> <span>{completedCount}</span></p>
+              <p className="my-1">
+                <span className="total">تعداد وظایف:</span>{" "}
+                <span>{todos.length}</span>
+              </p>
+              <p className="my-1">
+                <span className="done ">کار های انجام شده:</span>{" "}
+                <span>{completedCount}</span>
+              </p>
             </ListGroup>
           </div>
         </Col>

@@ -16,8 +16,11 @@
 .input-style {
   flex: 1;
   margin-right: 10px;
+  direction: rtl;
 }
-
+.error {
+  direction: rtl;
+}
 .list-container {
   max-height: 300px;
   overflow-y: auto;
