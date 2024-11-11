@@ -1,5 +1,5 @@
 body {
-  font-family: 'Vazir', sans-serif;
+  font-family: "Vazir", sans-serif;
 }
 
 .todo-container {
@@ -76,7 +76,9 @@ body {
     transform: translateY(0);
   }
 }
-
+.inputadd {
+  width: 100%;
+}
 .square-checkbox {
   width: 24px;
   height: 24px;

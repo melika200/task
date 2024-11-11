@@ -1,11 +1,12 @@
-// src/hooks/useTodos.js
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { v4 as uuidv4 } from "uuid";
 
 export const useTodos = () => {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || []);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || []
+  );
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -13,7 +14,11 @@ export const useTodos = () => {
 
   const handleAddTodo = async (values, { resetForm }) => {
     try {
-      const newTodo = { id: uuidv4(), text: values.task.trim(), completed: false };
+      const newTodo = {
+        id: uuidv4(),
+        text: values.task.trim(),
+        completed: false,
+      };
       setTodos((prevTodos) => [...prevTodos, newTodo]);
       resetForm();
       await Swal.fire({
@@ -42,7 +47,9 @@ export const useTodos = () => {
           toast.info("در حال حذف تسک", {
             autoClose: 1000,
             onClose: async () => {
-              setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+              setTodos((prevTodos) =>
+                prevTodos.filter((todo) => todo.id !== id)
+              );
               await Swal.fire("حذف شد!", "تسک با موفقیت حذف شد.", "success");
             },
           });
@@ -53,11 +60,12 @@ export const useTodos = () => {
       }
     });
   };
-  
 
   const handleToggleComplete = (id) => {
     setTodos((prevTodos) =>
-      prevTodos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
     );
   };
 

@@ -1,8 +1,7 @@
-// src/components/TodoList/Task.js
 import React from "react";
 import { ListGroupItem } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
-import "../Todolist/Todolist.css"
+import "../Todolist/Todolist.css";
 const getTextDirection = (text) => {
   const persianRegex = /^[\u0600-\u06FF]/;
   return persianRegex.test(text[0]) ? "rtl" : "ltr";
@@ -23,7 +22,9 @@ const Task = ({ todo, handleToggleComplete, handleDeleteTodo }) => (
       </div>
       <div className="d-flex align-items-center">
         <span
-          className={`ms-2 ${todo.completed ? "text-decoration-line-through" : ""}`}
+          className={`ms-2 ${
+            todo.completed ? "text-decoration-line-through" : ""
+          }`}
           dir={getTextDirection(todo.text)}
         >
           {todo.text}

@@ -1,4 +1,3 @@
-// src/helpers/ErrorBoundary.js
 import React, { Component } from "react";
 
 class ErrorBoundary extends Component {
@@ -19,8 +18,9 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div>
-          
-          <button onClick={() => this.setState({ hasError: false })}>تلاش مجدد</button>
+          <button onClick={() => this.setState({ hasError: false })}>
+            تلاش مجدد
+          </button>
         </div>
       );
     }

@@ -8,7 +8,6 @@
   src: url("./Assets/Fonts/Qs_Iranyekan\ medium.ttf") format("ttf");
 }
 body {
-
   background: linear-gradient(to right, #ffcccc, #ccffcc, #ccccff);
   color: white;
   font-family: "MyCustomFont", sans-serif;
