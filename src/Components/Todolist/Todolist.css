@@ -7,9 +7,10 @@
   background-color: #f8f9fa;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-.taskinfo{
+.taskinfo {
   direction: rtl;
   margin-top: 10px;
+  margin-right: 13px;
 }
 .form-style {
   display: flex;
