@@ -140,7 +140,8 @@ const TodoList = () => {
                   </span>
                 </div>
               ))}
-              <p className="my-1">
+             <div className="taskinfo">
+             <p className="my-1">
                 <span className="total">تعداد وظایف:</span>{" "}
                 <span>{todos.length}</span>
               </p>
@@ -148,6 +149,7 @@ const TodoList = () => {
                 <span className="done ">کار های انجام شده:</span>{" "}
                 <span>{completedCount}</span>
               </p>
+             </div>
             </ListGroup>
           </div>
         </Col>
