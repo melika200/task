@@ -3,25 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-@keyframes colorChange {
-  0% {
-    background-color: #ffcccc;
-  }
-  25% {
-    background-color: #ccffcc;
-  }
-  50% {
-    background-color: #ccccff;
-  }
-  75% {
-    background-color: #ddb6d0;
-  }
-  100% {
-    background-color: #ecc6b4;
-  }
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("./Assets/Fonts/Qs_Iranyekan\ medium.ttf") format("ttf");
 }
 body {
-  animation: colorChange 18s infinite;
-  transition: background-color 0.8s;
-  font-family: sans-serif;
+
+  background: linear-gradient(to right, #ffcccc, #ccffcc, #ccccff);
+  color: white;
+  font-family: "MyCustomFont", sans-serif;
 }

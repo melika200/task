@@ -1,20 +1,29 @@
+body {
+  font-family: 'Vazir', sans-serif;
+}
+
 .todo-container {
-  max-width: 500px;
-  margin: 10rem auto;
+  width: 30%;
+  margin: auto;
+  background-color: #fff;
   padding: 20px;
-  border: 3px solid rgb(240, 22, 138);
-  border-radius: 10px;
-  background-color: #f8f9fa;
+  border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5rem;
 }
-.taskinfo {
-  direction: rtl;
-  margin-top: 10px;
-  margin-right: 13px;
+
+.todolist {
+  width: 100%;
 }
+
 .form-style {
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: center;
 }
 
 .input-style {
@@ -22,18 +31,22 @@
   margin-right: 10px;
   direction: rtl;
 }
+
 .error {
   direction: rtl;
 }
+
 .list-container {
   max-height: 300px;
   overflow-y: auto;
+  width: 100%;
 }
 
 .list-item {
   margin-bottom: 5px;
   transition: background-color 0.3s ease;
   width: 100%;
+  background-color: #f3dfdf;
 }
 
 .list-item:hover {
@@ -88,11 +101,13 @@
 .text-decoration-line-through {
   text-decoration: line-through;
 }
+
 .taskicon:hover {
   cursor: pointer;
   animation: iconAnimation 0.5s ease-out forwards;
   color: red;
 }
+
 @keyframes iconAnimation {
   0% {
     transform: scale(1);
@@ -101,14 +116,20 @@
     transform: scale(1.2);
   }
 }
+
 .add {
   all: unset;
 }
+
 .iconadd {
   cursor: pointer;
   animation: bounce 1s;
   font-size: 30px;
+  color: white;
+  background-color: purple;
+  border-radius: 20px;
 }
+
 @keyframes bounce {
   0%,
   20%,
@@ -124,10 +145,12 @@
     transform: translateY(-15px);
   }
 }
+
 .iconadd:hover {
   color: green;
   animation: shake 0.5s;
 }
+
 @keyframes shake {
   0% {
     transform: translateX(0);
@@ -145,10 +168,30 @@
     transform: translateX(0);
   }
 }
+
 .total {
   font-size: 18px;
-  border-bottom: 5px solid rgb(79, 3, 69);
+  background-color: rgba(79, 3, 69, 0.292);
+  color: rgb(75, 70, 70);
+  border-radius: 10px;
+  padding: 6px 10px;
 }
+
 .done {
-  border-bottom: 5px solid green;
+  font-size: 18px;
+  background-color: rgba(11, 68, 6, 0.378);
+  color: rgb(58, 55, 55);
+  border-radius: 10px;
+  padding: 7px 6px;
+}
+
+.taskinfo {
+  direction: rtl;
+  margin-top: 10px;
+  margin-right: 13px;
+  border-radius: 20px;
+  padding: 18px 33px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
