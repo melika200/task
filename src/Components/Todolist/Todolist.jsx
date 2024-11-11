@@ -33,7 +33,7 @@ const TodoList = () => {
       <ToastContainer />
       <Row className="d-flex justify-content-center align-content-center mt-5">
         <Col md="auto" className=" todolist">
-          <h1 className="text-center my-4 subject">کار های روزانه</h1>
+          <h1 className=" my-4 subject">کار های روزانه</h1>
           <Formik
             initialValues={{ task: "" }}
             validationSchema={validationSchema}

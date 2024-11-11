@@ -54,9 +54,9 @@ body {
 }
 
 .subject {
-  font-size: 48px;
+  font-size:26px;
   color: rgb(82, 2, 83);
-  text-align: center;
+  text-align: right;
   opacity: 0;
   transform: translateY(-50px);
   animation: slideIn 1s forwards;
