@@ -1,14 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 @font-face {
   font-family: "MyCustomFont";
-  src: url("./Assets/Fonts/Qs_Iranyekan\ medium.ttf") format("ttf");
+  src: url("./Assets/Fonts/Qs_Iranyekan\ medium.ttf") format("truetype");
 }
+
 body {
   background: linear-gradient(to right, #ffcccc, #ccffcc, #ccccff);
   color: white;
   font-family: "MyCustomFont", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
